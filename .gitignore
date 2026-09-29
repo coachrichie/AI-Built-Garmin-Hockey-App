@@ -1,0 +1,12 @@
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+*.py[cod]
+*.fit
+*.FIT
+*.iq
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
