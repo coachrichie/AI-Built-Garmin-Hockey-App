@@ -55,3 +55,45 @@ def test_public_story_is_not_a_raw_transcript_dump():
     assert "raw chat transcript" not in public_markdown.lower()
     assert "assistant:" not in public_markdown.lower()
     assert "user:" not in public_markdown.lower()
+
+
+def test_three_balanced_mermaid_diagrams_cover_the_required_flows():
+    technical_docs = "\n".join(
+        read(path)
+        for path in (
+            "docs/ARCHITECTURE.md",
+            "docs/VALIDATION.md",
+        )
+    )
+
+    assert technical_docs.count("```mermaid") == 3
+    assert technical_docs.count("```") == 6
+    for label in (
+        "Hockey Evidence",
+        "Human decisions",
+        "Garmin watch",
+        "Local browser analysis",
+        "Evidence",
+        "Metric classification",
+    ):
+        assert label in technical_docs
+
+
+def test_beta_status_uses_the_approved_conservative_vocabulary():
+    status = read("docs/BETA_STATUS.md")
+
+    for label in (
+        "Beta tested",
+        "Implemented, validation pending",
+        "Planned",
+        "Out of scope for version 1",
+    ):
+        assert label in status
+    assert not re.search(r"\b\d+(?:\.\d+)?\s*%", status)
+
+
+def test_app_source_boundary_is_explicit():
+    app_readme = read("app/README.md").lower()
+
+    assert "after beta stabilization" in app_readme
+    assert "no application source" in app_readme
