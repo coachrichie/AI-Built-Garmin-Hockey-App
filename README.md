@@ -43,7 +43,7 @@ The important shift was not asking AI to “make an app.” Each stage had a nar
 
 ## The beta result: ShiftSense Hockey
 
-ShiftSense Hockey is designed as an offline-first Garmin Connect IQ app for ice and inline hockey. It records a standard FIT activity, separates work and recovery periods, and organizes hockey-specific load and recovery metrics without requiring a phone, cloud account, or server for its core operation.
+ShiftSense Hockey is designed as an offline-first Garmin Connect IQ app for ice and inline hockey. The approved design calls for standard FIT activity recording, separation of work and recovery periods, and hockey-specific load and recovery metrics without requiring a phone, cloud account, or server for core operation. Feature-level implementation evidence is not yet published.
 
 The technical design separates:
 

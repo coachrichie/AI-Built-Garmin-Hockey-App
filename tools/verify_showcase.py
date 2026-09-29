@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 import re
 from urllib.parse import unquote
@@ -56,16 +57,37 @@ def verify_structure(root: Path) -> list[str]:
 
 def scan_relative_links(root: Path) -> list[str]:
     findings: list[str] = []
-    link_pattern = re.compile(r"\[[^]]*\]\(([^)]+)\)")
+    inline_pattern = re.compile(r"\[[^]]*\]\(([^)]+)\)")
+    reference_pattern = re.compile(r"^\s*\[[^]]+\]:\s*(\S+)", re.MULTILINE)
+
+    def exact_case_exists(path: Path) -> bool:
+        try:
+            relative = path.relative_to(root)
+        except ValueError:
+            return False
+        current = root
+        for part in relative.parts:
+            try:
+                names = {child.name for child in current.iterdir()}
+            except (FileNotFoundError, NotADirectoryError):
+                return False
+            if part not in names:
+                return False
+            current = current / part
+        return current.exists()
+
     for path in markdown_files(root):
         text = path.read_text(encoding="utf-8")
-        for raw_target in link_pattern.findall(text):
+        targets = inline_pattern.findall(text) + reference_pattern.findall(text)
+        for raw_target in targets:
             target = raw_target.strip().strip("<>").split("#", 1)[0]
             if not target or re.match(r"^[a-z][a-z0-9+.-]*:", target, re.IGNORECASE):
                 continue
             target = unquote(target)
-            resolved = (path.parent / target).resolve()
-            if not resolved.exists():
+            candidate = Path(os.path.abspath(path.parent / target))
+            if not candidate.is_relative_to(root):
+                findings.append(f"{path.relative_to(root).as_posix()}: link-outside-repository")
+            elif not exact_case_exists(candidate):
                 findings.append(f"{path.relative_to(root).as_posix()}: broken-relative-link")
     return sorted(set(findings))
 
@@ -74,7 +96,11 @@ def scan_sensitive_content(root: Path) -> list[str]:
     findings: list[str] = []
     secret_patterns = (
         re.compile(r"\bgh[pousr]_[A-Za-z0-9]{20,}\b"),
-        re.compile(r"\b(?:api[_-]?key|token|secret)\s*[:=]\s*[^\s<]{12,}", re.IGNORECASE),
+        re.compile(r"\bgithub_pat_[A-Za-z0-9_]{20,}\b"),
+        re.compile(
+            r'["\']?(?:api[_-]?key|token|secret)["\']?\s*[:=]\s*["\']?[^\s<"\']{12,}',
+            re.IGNORECASE,
+        ),
     )
     local_path_patterns = (
         re.compile(r"[A-Za-z]:\\Users\\[^\\\s]+", re.IGNORECASE),
@@ -83,8 +109,6 @@ def scan_sensitive_content(root: Path) -> list[str]:
 
     for path in public_files(root):
         relative = path.relative_to(root).as_posix()
-        if "tests" in path.parts:
-            continue
         if path.suffix.lower() in {".fit", ".iq"}:
             findings.append(f"{relative}: forbidden-private-artifact")
             continue

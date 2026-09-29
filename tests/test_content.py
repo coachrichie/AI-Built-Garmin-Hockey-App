@@ -97,3 +97,13 @@ def test_app_source_boundary_is_explicit():
 
     assert "after beta stabilization" in app_readme
     assert "no application source" in app_readme
+
+
+def test_feature_level_beta_status_stays_unverified_without_evidence():
+    status = read("docs/BETA_STATUS.md")
+    readme = read("README.md")
+
+    assert "| Core activity recording | **Planned** |" in status
+    assert "| Hockey-specific analytics | **Planned** |" in status
+    assert "| Automatic shift classification | **Planned** |" in status
+    assert "is designed as an offline-first Garmin Connect IQ app" in readme

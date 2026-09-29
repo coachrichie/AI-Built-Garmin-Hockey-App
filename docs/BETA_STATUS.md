@@ -16,9 +16,9 @@ This is the source of truth for public implementation and validation language. I
 | Area | Status | Public interpretation |
 |---|---|---|
 | Garmin watch application | **Beta tested** | A working build is undergoing beta use; release readiness is not claimed. |
-| Core activity recording | **Beta tested** | Beta sessions exercise the recording workflow; a public reliability result is pending. |
-| Hockey-specific analytics | **Implemented, validation pending** | The beta includes analysis behavior, but this showcase does not publish accuracy results yet. |
-| Automatic shift classification | **Implemented, validation pending** | Real-world comparison and threshold refinement continue during beta. |
+| Core activity recording | **Planned** | The approved design includes recording, but no feature-level implementation evidence is published here. |
+| Hockey-specific analytics | **Planned** | The approved design defines the analysis; implementation and validation evidence are not yet public. |
+| Automatic shift classification | **Planned** | Classification remains a designed capability until specific implementation evidence is published. |
 | Verified screenshots | **Planned** | Screenshots will be reviewed for accuracy and privacy before publication. |
 | Public application source | **Planned** | Source follows beta stabilization and repository review. |
 | Local browser analysis | **Planned** | It remains part of the approved system design; this portfolio does not claim a public release. |
