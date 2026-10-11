@@ -1,6 +1,6 @@
 # Beta Status
 
-Last reviewed: 29 September 2026
+Last reviewed: 11 October 2026
 
 This is the source of truth for public implementation and validation language. It is intentionally more conservative than the product design. A capability moves to a stronger status only when supporting evidence can be published or independently inspected.
 
@@ -16,12 +16,12 @@ This is the source of truth for public implementation and validation language. I
 | Area | Status | Public interpretation |
 |---|---|---|
 | Garmin watch application | **Beta tested** | A working build is undergoing beta use; release readiness is not claimed. |
-| Core activity recording | **Planned** | The approved design includes recording, but no feature-level implementation evidence is published here. |
-| Hockey-specific analytics | **Planned** | The approved design defines the analysis; implementation and validation evidence are not yet public. |
-| Automatic shift classification | **Planned** | Classification remains a designed capability until specific implementation evidence is published. |
+| Core activity recording | **Beta tested** | Start, manual shifts, live heart rate, save, and three post-training pages were exercised on a Venu 2 Plus. |
+| Hockey-specific analytics | **Implemented, validation pending** | Shift summaries, HR metrics, zones, recovery, experimental pushes, and estimated distance are public; scientific accuracy claims remain withheld. |
+| Automatic shift classification | **Implemented, validation pending** | It remains a non-authoritative shadow proposal system and does not change the manual shift record. |
 | Verified screenshots | **Planned** | Screenshots will be reviewed for accuracy and privacy before publication. |
-| Public application source | **Planned** | Source follows beta stabilization and repository review. |
-| Local browser analysis | **Planned** | It remains part of the approved system design; this portfolio does not claim a public release. |
+| Public application source | **Beta tested** | The reviewed source is published separately at [coachrichie/RinkLogic](https://github.com/coachrichie/RinkLogic). |
+| Local FIT analysis | **Implemented, validation pending** | Public tools decode the versioned developer fields locally; personal FIT files remain private. |
 | Broad device compatibility matrix | **Planned** | Candidate families require simulator and hardware evidence before support is advertised. |
 | Torhüter-specific model | **Out of scope for version 1** | Field-player and goalkeeper workloads are not treated as interchangeable. |
 | Medical or concussion detection | **Out of scope for version 1** | The project does not provide diagnosis or medical alerts. |

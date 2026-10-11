@@ -1,25 +1,20 @@
 # Application Source
 
-There is **no application source in this repository yet**.
+Application source is intentionally **not duplicated in this portfolio**.
 
-ShiftSense Hockey is currently in beta. Source code will be added here **after beta stabilization**, a publication review, and removal of private test data or machine-specific configuration.
+RinkLogic is currently in beta. Its reviewed Connect IQ source, tests, build guidance, Apache-2.0 software license, documentation licensing, and community files are public in [coachrichie/RinkLogic](https://github.com/coachrichie/RinkLogic).
 
-Publishing the technical portfolio first keeps an unstable snapshot from being mistaken for a supported release. It also allows the architecture, evidence boundaries, and AI-skills workflow to be reviewed independently of implementation churn.
+This repository remains the curated technical case study. The application repository is the single source of truth for implementation, issues, pull requests, and releases, which avoids stale or conflicting code copies.
 
-## Intended future layout
-
-When the source is ready, this directory is expected to contain:
+## Application repository layout
 
 ```text
-app/
-|-- manifest.xml
-|-- monkey.jungle
-|-- source/
-|-- resources/
-|-- tests/
-`-- README.md
+RinkLogic/
+|-- watch-v2/
+|-- analysis/
+|-- shared/schema/
+|-- scripts/
+`-- docs/
 ```
 
-The final layout may change if beta findings require different component boundaries. Any published source will include build prerequisites, supported-device evidence, test instructions, and known limitations.
-
-For current implementation and validation claims, see [Beta status](../docs/BETA_STATUS.md).
+For current public claims, see [Beta status](../docs/BETA_STATUS.md). For code-level status and test instructions, use the public application repository.

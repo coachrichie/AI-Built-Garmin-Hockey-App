@@ -4,11 +4,11 @@
 [![Platform: Garmin Connect IQ](https://img.shields.io/badge/platform-Garmin%20Connect%20IQ-007cc3)](docs/ARCHITECTURE.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-2ea44f)](LICENSE)
 
-> A technical portfolio about using AI skills to build **ShiftSense Hockey** without prior Monkey C experience.
+> A technical portfolio about using AI skills to build **RinkLogic** (formerly ShiftSense Hockey) without prior Monkey C experience.
 
 This repository is not a victory lap for generated code. It is a case study in turning AI from a general-purpose assistant into a disciplined engineering system: domain research, platform guidance, explicit architecture, conservative claims, and validation gates.
 
-ShiftSense Hockey is currently in **beta testing**. This repository documents the method and the technical design now; verified screenshots, beta results, and application source will follow only when they are ready to publish.
+RinkLogic is currently in **beta testing**. Its reviewed source, tests, licensing, and contributor documentation are now public in [coachrichie/RinkLogic](https://github.com/coachrichie/RinkLogic). This portfolio documents the AI-assisted method, architecture, and validation boundaries without duplicating the application repository.
 
 ## The skill stack
 
@@ -41,9 +41,9 @@ The important shift was not asking AI to “make an app.” Each stage had a nar
 
 [See the development workflow →](docs/DEVELOPMENT_WORKFLOW.md)
 
-## The beta result: ShiftSense Hockey
+## The beta result: RinkLogic
 
-ShiftSense Hockey is designed as an offline-first Garmin Connect IQ app for ice and inline hockey. The approved design calls for standard FIT activity recording, separation of work and recovery periods, and hockey-specific load and recovery metrics without requiring a phone, cloud account, or server for core operation. Feature-level implementation evidence is not yet published.
+RinkLogic is an offline-first Garmin Connect IQ beta for ice and inline hockey. On a Venu 2 Plus, the beta has completed start, manual-shift, live-heart-rate, save, and three-page post-training summary checks. Garmin Connect Mobile has also displayed the custom hockey section with shift count, average shift duration, and average shift heart rate first. These checks demonstrate operation of that build; they do not validate automatic shift or distance accuracy.
 
 The technical design separates:
 
@@ -68,10 +68,10 @@ No accuracy percentage, supported-device list, or production-readiness claim app
 |---|---|
 | Product and system design | Documented |
 | Domain and platform skill workflow | Documented |
-| Garmin application | Beta testing |
-| Verified beta results | Publication pending |
+| Garmin application | Public source; beta testing |
+| Verified beta results | Initial Venu 2 Plus and Garmin Connect checks documented |
 | Screenshots | Publication pending |
-| Application source | Planned after beta stabilization |
+| Application source | Published in [RinkLogic](https://github.com/coachrichie/RinkLogic) |
 
 The detailed status register is deliberately conservative: [Beta status →](docs/BETA_STATUS.md)
 
@@ -83,11 +83,11 @@ The detailed status register is deliberately conservative: [Beta status →](doc
 - [Validation](docs/VALIDATION.md) — evidence levels and claim promotion
 - [Lessons learned](docs/LESSONS_LEARNED.md) — practical lessons for AI builders
 - [Beta status](docs/BETA_STATUS.md) — the source of truth for current claims
-- [Application source status](app/README.md) — why source is not published yet
+- [Application source status](app/README.md) — where the public source lives and why it remains separate
 
-## Why publish this before the source?
+## Why keep the portfolio separate from the source?
 
-The workflow is already useful to developers, while the app is still changing under beta feedback. Publishing the technical portfolio first lets the reasoning, boundaries, and validation discipline stand on their own. It also prevents an unstable code snapshot from being mistaken for a release.
+The portfolio explains the reasoning, evidence boundaries, and AI workflow; the RinkLogic repository carries buildable source, tests, issues, licensing, and release history. Keeping those responsibilities separate avoids turning a case study into a second, stale source distribution.
 
 ## License and scope
 

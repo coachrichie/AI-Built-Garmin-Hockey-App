@@ -95,15 +95,17 @@ def test_beta_status_uses_the_approved_conservative_vocabulary():
 def test_app_source_boundary_is_explicit():
     app_readme = read("app/README.md").lower()
 
-    assert "after beta stabilization" in app_readme
-    assert "no application source" in app_readme
+    assert "not duplicated in this portfolio" in app_readme
+    assert "https://github.com/coachrichie/rinklogic" in app_readme
+    assert "single source of truth" in app_readme
 
 
-def test_feature_level_beta_status_stays_unverified_without_evidence():
+def test_feature_level_beta_status_tracks_published_evidence_without_accuracy_claims():
     status = read("docs/BETA_STATUS.md")
     readme = read("README.md")
 
-    assert "| Core activity recording | **Planned** |" in status
-    assert "| Hockey-specific analytics | **Planned** |" in status
-    assert "| Automatic shift classification | **Planned** |" in status
-    assert "is designed as an offline-first Garmin Connect IQ app" in readme
+    assert "| Core activity recording | **Beta tested** |" in status
+    assert "| Hockey-specific analytics | **Implemented, validation pending** |" in status
+    assert "| Automatic shift classification | **Implemented, validation pending** |" in status
+    assert "they do not establish automatic-shift, push-count, or distance accuracy" in read("docs/VALIDATION.md").lower()
+    assert "https://github.com/coachrichie/RinkLogic" in readme

@@ -7,7 +7,7 @@ Thank you for helping make this technical portfolio more useful and accurate.
 - **Documentation:** improve clarity, accessibility, links, or diagrams without strengthening unsupported claims.
 - **Evidence corrections:** identify a source, measurement limit, or interpretation that should be revised; explain the affected claim and provide a primary source where possible.
 - **Beta feedback:** report reproducible behavior without attaching personal activity files or another person's data.
-- **Application source:** source contributions will be accepted only after the beta code is published in `app/` with its own build and test guidance.
+- **Application source:** propose code changes in [coachrichie/RinkLogic](https://github.com/coachrichie/RinkLogic); this repository accepts portfolio and evidence-documentation changes.
 
 ## Status changes
 
