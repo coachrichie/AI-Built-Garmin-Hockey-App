@@ -65,7 +65,7 @@ Insufficient inputs should produce “not available,” not a precise-looking su
 
 A feature may be implemented while its validation remains pending. Public wording becomes stronger only when evidence exists for the actual population, hardware, algorithm version, and test condition being described.
 
-This repository currently makes no numerical accuracy claim and publishes no definitive device-support matrix. Verified beta results will be added with their method, scope, and limitations.
+This repository currently makes no numerical accuracy claim and publishes no definitive device-support matrix. The documented Venu 2 Plus and Garmin Connect checks establish that the tested beta build operated through recording, manual shifts, saving, summaries, and custom activity fields; they do not establish automatic-shift, push-count, or distance accuracy.
 
 ## Scientific and medical boundary
 
